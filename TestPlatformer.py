@@ -40,10 +40,10 @@ score = 0
 platform_List = [Platform()]
 for i in range(1, max_Platforms):
     # platforms staying in bounds
-    if platform_List[i-1].getPlatformRect().y - 100 < -height + 5:
+    if platform_List[i-1].getPlatformRect().y - 100 < 50:
         platform_List.append(Platform(platform_List[i - 1].getPlatformRect().x + random.randint(115, 200),
                                       platform_List[i - 1].getPlatformRect().y + random.randint(0, 100)))
-    elif platform_List[i-1].getPlatformRect().y + 100 > height - 5:
+    elif platform_List[i-1].getPlatformRect().y + 100 > height - 10:
         platform_List.append(Platform(platform_List[i - 1].getPlatformRect().x + random.randint(115, 200),
                                       platform_List[i - 1].getPlatformRect().y + random.randint(-100, 0)))
     else:
@@ -69,7 +69,6 @@ class Player():
 
     def playerFunc(self):
         screen.blit(pygame.transform.flip(self.icon, flip, False), (self.rect.x - 4, self.rect.y - 1))
-        pygame.draw.rect(screen, black, self.rect, 1)
 
     def getRect(self):
         return self.rect
